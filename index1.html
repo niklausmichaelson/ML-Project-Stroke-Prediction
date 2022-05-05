@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body {
+            background: url("{{url_for('static', filename='brain.jpg')}}") center top no-repeat;
+            display: block;
+            background-size: cover;
+            height: 768px;
+            width: 100%;
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- <h1></h1> -->
+    <form action="{{url_for('predict')}}" method ="POST">
+
+        <div class="container" >
+            <h1 class="text-center my-3 text-white">STROKE PREDICTION</h1>
+            <div class="row my-5">
+                <div class="col-md-6">
+    
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Age</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div>
+    
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Hypertension</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+    
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Heart Disease </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Ever Married</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Work Type </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Private">Private</option>
+                            <option value="Self-employed">Self-Employed</option>
+                            <option value="Govt_job">Govt. Job</option>
+                            <option value="children">Children</option>
+                            <option value="Never_worked">Never Worked</option>
+                        </select>
+                    </div>
+    
+                    <!-- <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Residency Type </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Urban</option>
+                            <option value="2">Rural</option>
+                        </select>
+                    </div> -->
+    
+                    <!-- <div class="input-group mb-3">
+                        <span class="input-group-text">BMI</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div> -->
+    
+                    <!-- <div class="input-group mb-3">
+                        <span class="input-group-text">Stroke</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Residency Type </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Urban">Urban</option>
+                            <option value="Rural">Rural</option>
+                        </select>
+                    </div>
+                    <!-- <div class="input-group mb-3">
+                        <span class="input-group-text">Age</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div> -->
+                    <!-- <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Heart Disease </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Yes</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div> -->
+                    <!-- <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Work Type </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Private</option>
+                            <option value="2">Self-Employed</option>
+                            <option value="3">Govt. Job</option>
+                            <option value="4">Children</option>
+                            <option value="5">Never Worked</option>
+                        </select>
+                    </div> -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Average Glucose Level</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">BMI</span>
+                        <input type="number" aria-label="First name" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Smoking Status </label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="formerly Smoked">Formerly Smoked</option>
+                            <option value="Never Smoked">Never Smoked</option>
+                            <option value="smokes">Smokes</option>
+                            <option value="Unknown">Unknown</option>
+                        </select>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Result">
+            </div>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
